@@ -1,17 +1,16 @@
 const express = require('express')
 const bodyParser = require('body-parser')
 const cors = require('cors')
+const {sequelize} = require('./models')
+const models = require('./models')
 const app = express()
 
 app.use(bodyParser.json())
 app.use(cors())
 
-app.get('/', (req, res) => {
-	res.send("hello world")
+require('./routes')(app)
+
+sequelize.sync().then(() => {
+	app.listen(5000)
 })
 
-app.post('/register', (req, res) => {
-	res.send("hello world " + req.body.email)
-})
-
-app.listen(5000)
