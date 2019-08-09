@@ -8,5 +8,8 @@ module.exports = {
 			dialect: 'sqlite',
 			storage: './nodetab.sqlite'
 		}
+	},
+	authentication: {
+		key: "secret"
 	}
 }
