@@ -7,42 +7,15 @@ import router from './router'
 import Vuetify from 'vuetify'
 import 'vuetify/dist/vuetify.min.css'
 import Vuex from 'vuex'
+import store from '@/store/store'
 
 Vue.use(Vuex)
-
-const store = new Vuex.Store({
-	strict: true,
-	state: {
-		token: null,
-		user: null,
-		isSignedIn: false
-	},
-	mutations: {
-		setToken(state, token){
-			state.token = token
-			if(token){
-				state.isSignedIn = true
-			}
-		},
-		setUser(state, user){
-			state.user = user
-		}
-	},
-	actions: {
-		setToken({commit}, token){
-			commit('setToken', token)
-		},
-		setUser({commit}, user) {
-			commit('setUser', user)
-		}
-	}
-})
+Vue.use(Vuetify)
 
 sync(store, router)
 
 Vue.config.productionTip = false
 
-Vue.use(Vuetify)
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
