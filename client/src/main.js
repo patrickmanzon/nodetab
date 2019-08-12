@@ -8,9 +8,11 @@ import Vuetify from 'vuetify'
 import 'vuetify/dist/vuetify.min.css'
 import Vuex from 'vuex'
 import store from '@/store/store'
+import VueYouTubeEmbed from 'vue-youtube-embed'
 
 Vue.use(Vuex)
 Vue.use(Vuetify)
+Vue.use(VueYouTubeEmbed)
 
 sync(store, router)
 

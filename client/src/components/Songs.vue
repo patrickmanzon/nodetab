@@ -68,7 +68,7 @@
     }
 </script>
 
-<style>
+<style scoped>
     .song-details{
         text-align: center;
         vertical-align: middle;
