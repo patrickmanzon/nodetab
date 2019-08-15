@@ -71,13 +71,8 @@
 </template>
 
 <script>
-    import Panel from '@/components/Panel'
     import SongService from '@/services/SongService'
-    export default {
-        components: {
-            Panel
-        },
-
+    export default {   
         data(){
             return {
                 song: {

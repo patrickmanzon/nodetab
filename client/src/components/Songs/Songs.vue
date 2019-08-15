@@ -1,5 +1,5 @@
 <template>
-    <panel :title="song.title">
+    <panel title="Songs">
         <v-btn 
             slot="button" 
             class="cyan accent-2" 
@@ -7,23 +7,28 @@
             large 
             absolute 
             right
-            @click = "redirect({name: 'edit-song', params:{ songId: song.id }})"
+            @click = "redirect({name: 'create-song'})"
         >
-            <v-icon>edit</v-icon>
+            <v-icon>add</v-icon>
         </v-btn>
-        <div class="songs">
+        <div class="songs" v-for="song in songs" :key="song.id">
             <v-layout row>
                 <v-flex xs6>
                     <div class="song-details pt-10 mb-5">
                         <h2>{{ song.title }}</h2>
                         <h3>{{ song.artist }}</h3>
-                        <h4>{{ song.genre }}</h4>
+                        <h4>{{ song.album }}</h4>
+                        <v-btn class="cyan" dark large @click="redirect({
+                            name:'view-song', 
+                            params: {
+                                songId: song.id 
+                            }
+                        })">View</v-btn>   
                     </div>
                 </v-flex>
                 <v-flex xs6>
                     <div class="song-album-image">
                         <img :src="song.albumImage" :alt="song.albumImage">
-                        <h3>{{ song.album }}</h3>
                     </div>
                 </v-flex>
             </v-layout>
@@ -32,17 +37,25 @@
 </template>
 
 <script>
+    import SongService from '@/services/SongService'
     export default {
-        props: ['song'],
+        props: ['songs'],
         methods: {
-            redirect(route)
-            {
+            redirect(route) {
                 this.$router.push(route)
             }
-        }
+        },
     }
 </script>
 
-<style>
+<style scoped>
+    .song-details{
+        text-align: center;
+        vertical-align: middle;
+    }
     
+    .song-album-image{
+        width: 50%;
+        margin: auto;
+    }
 </style>

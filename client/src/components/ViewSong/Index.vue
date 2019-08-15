@@ -23,7 +23,6 @@
 </template>
 
 <script>
-    import Panel from '@/components/Panel'
     import SongData from './SongData'
     import YouTube from './YouTube'
     import Lyrics from './Lyrics'
@@ -37,7 +36,6 @@
             }
         },
         components: {
-            Panel,
             SongData,
             YouTube,
             Lyrics,
